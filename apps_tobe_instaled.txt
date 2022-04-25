@@ -1,0 +1,22 @@
+ AdGuard
+ Amethyst 
+ Bartender 
+ Caramba switcher 
+ CheatSheet 
+ CleanMyMac 
+ Dashlane 
+ FileZilla 
+ Folx
+ Chrome 
+ 
+ InsomniaX
+ MicrosoftOffice 
+ Miro 
+ Movavi Video Converter 
+ PyCharm 
+ QtDesigner
+ Telegramm
+ The Unarchiver 
+ Tuxera Disk Manager 
+ VLC
+ Wireguard 
