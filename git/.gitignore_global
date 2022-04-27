@@ -1,0 +1,31 @@
+# Files
+*.gz
+*.tmproj
+*.7z
+
+# Folders
+.vscode/
+build/
+
+# If folders don't work, you can still do this
+.vscode/*
+build/*
+
+# Node
+npm-debug.log
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# WebStorm
+.idea/
+
+# vi
+*~
+
+# General
+log/
+*.log

@@ -20,3 +20,4 @@
  Tuxera Disk Manager 
  VLC
  Wireguard 
+ Spark

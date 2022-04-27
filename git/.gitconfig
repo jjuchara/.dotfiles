@@ -7,3 +7,5 @@
 	defaultBranch = master
 [pull]
 	rebase = false
+[core]
+	excludesfile = /Users/jjuchara/.gitignore_global
