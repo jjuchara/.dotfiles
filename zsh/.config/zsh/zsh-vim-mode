@@ -9,6 +9,7 @@ bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 bindkey -M menuselect '^[[Z' vi-up-line-or-history
 bindkey -v '^?' backward-delete-char
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {

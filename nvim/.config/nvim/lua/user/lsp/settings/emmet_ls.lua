@@ -21,6 +21,5 @@ return {
     "sss",
     "hbs",
     "handlebars",
-    "htmldjango"
   },
 }

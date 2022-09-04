@@ -45,6 +45,7 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_completion "esc/conda-zsh-completion" false
+zsh_add_plugin "zsh-users/poetry"
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 
@@ -97,3 +98,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 #setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
