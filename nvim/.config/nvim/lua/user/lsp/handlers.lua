@@ -7,7 +7,7 @@ if not status_cmp_ok then
   return
 end
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
   local icons = require "user.icons"
@@ -73,15 +73,6 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client)
-  -- if client.server_capabilities.document_highlight then
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
-  end
-  illuminate.on_attach(client)
-  -- end
-end
 
 local function attach_navic(client, bufnr)
   vim.g.navic_silence = true
@@ -115,11 +106,18 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
   attach_navic(client, bufnr)
 
   if client.name == "tsserver" then
-    require("lsp-inlayhints").on_attach(bufnr, client)
+    require("lsp-inlayhints").on_attach(client, bufnr)
+  end
+
+  if client.name == "jdt.ls" then
+    vim.lsp.codelens.refresh()
+    if JAVA_DAP_ACTIVE then
+      require("jdtls").setup_dap { hotcodereplace = "auto" }
+      require("jdtls.dap").setup_dap_main_class_configs()
+    end
   end
 end
 

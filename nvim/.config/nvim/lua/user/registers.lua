@@ -1,6 +1,6 @@
--- vim.g.registers_return_symbol = "\n" --'⏎' by default
--- vim.g.registers_tab_symbol = "\t" --'·' by default
--- vim.g.registers_space_symbol = " " --' ' by default
+vim.g.registers_return_symbol = "\n" --'⏎' by default
+vim.g.registers_tab_symbol = "\t" --'·' by default
+vim.g.registers_space_symbol = " " --' ' by default
 vim.g.registers_delay = 0 --0 by default, milliseconds to wait before opening the popup window
 vim.g.registers_register_key_sleep = 0 --0 by default, seconds to wait before closing the window when a register key is pressed
 vim.g.registers_show_empty_registers = 1 --1 by default, an additional line with the registers without content
@@ -12,4 +12,13 @@ vim.g.registers_window_max_width = 100 --100 by default, maximum width of the wi
 vim.g.registers_normal_mode = 1 --1 by default, open the window in normal mode
 vim.g.registers_visual_mode = 1 --1 by default, open the window in visual mode
 vim.g.registers_insert_mode = 1 --1 by default, open the window in insert mode
--- vim.g.registers_show = "*+\"" --'*+\"-/_=#%.0123456789abcdefghijklmnopqrstuvwxyz' by default, which registers to show and in what order
+vim.g.registers_show = "*+\"" --'*+\"-/_=#%.0123456789abcdefghijklmnopqrstuvwxyz' by default, which registers to show and in what order
+-- local registers = require("registers")
+-- registers.setup({
+--   hide_only_whitespace = true,
+--   show_empty = true,
+--   trim_whitespace = true,
+--   window = {
+--     border = "rounded"
+--   }
+-- })

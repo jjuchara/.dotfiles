@@ -1,5 +1,5 @@
 [user]
-	name = jjuchara
+	name = Jjuchara
 	email = jjuchara@gmail.com
 [url "git@github.com:"]
 	insteadOf = https://github.com/
@@ -8,6 +8,27 @@
 [pull]
 	rebase = false
 [core]
+	editor = nvim
 	excludesfile = /Users/jjuchara/.gitignore_global
+	autocrlf = input
 [github]
 	user = jjuchara
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[interactive]
+	diffFilter = delta --color-only
+[color]
+	ui = true
+[diff]
+	colorMoved = default
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[mergetool]
+	path = nvim
