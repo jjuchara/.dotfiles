@@ -10,7 +10,7 @@ return {
           typescript = "deno run %",
           javascript = "node %",
           markdown = "glow %",
-          python = "python %",
+          python = "python3 %",
           -- rust = "rustc % && ./$fileBase && rm $fileBase",
           rust = "cargo run",
           cpp = "g++ % -o $fileBase && ./$fileBase",
@@ -26,7 +26,7 @@ return {
 
       behavior = {
         -- Default type
-        default = "terminal",
+        default = "quickfix",
         -- Start in insert mode
         startinsert = false,
         -- Use `wincmd p` on startup
@@ -54,7 +54,7 @@ return {
         },
         terminal = {
           -- Position of terminal
-          position = "vert",
+          position = "bot",
           -- Open the terminal without line numbers
           line_no = false,
           -- Size of terminal
@@ -63,5 +63,7 @@ return {
       },
     }
   end,
-  keys = { { "<M-r>", "<cmd>Jaq<cr>" } },
+  keys = {
+    { "<leader>:", "<cmd>Jaq<cr>", desc = "Code runner" },
+  },
 }

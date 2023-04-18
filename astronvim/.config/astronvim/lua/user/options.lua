@@ -19,6 +19,7 @@ return {
 			eol = "↲",
 		},
 		wrap = true,
+		colorcolumn = "80",
 		showbreak = "↪ ",
 		guifont = "RecMonoCasual NF:h14",
 	},
