@@ -1,5 +1,6 @@
 #!/bin/sh
 alias g='lazygit'
+alias python="python3"
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
 

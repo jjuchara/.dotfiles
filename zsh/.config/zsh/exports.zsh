@@ -15,6 +15,7 @@ export PATH=$HOME/.fnm:$PATH
 export PATH="$HOME/.local/share/neovim/bin":$PATH
 export XDG_CURRENT_DESKTOP="Wayland"
 #export PATH="$PATH:./node_modules/.bin"
+export OPENAI_API_KEY="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"
 eval "$(fnm env)"
 eval "$(zoxide init zsh)"
 # eval "`pip completion --zsh`"
