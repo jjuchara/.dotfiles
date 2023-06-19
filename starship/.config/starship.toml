@@ -20,7 +20,7 @@ style = "blue bold"
 home_symbol = " "
 
 [package]
-disabled = true
+disabled = true 
 
 [username]
 style_user = 'yellow bold'
@@ -34,21 +34,7 @@ disabled = true
 [aws]
 disabled = true
 
-[docker_context]
-disabled = true
-
 [git_branch]
-disabled = true
+symbol = 'git'
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
 
-[git_commit]
-disabled = true
-
-[git_state]
-disabled = true
-
-[git_metrics]
-disabled = true
-
-[git_status]
-disabled = true
-isabled = true
