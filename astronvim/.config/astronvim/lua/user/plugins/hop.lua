@@ -14,7 +14,6 @@ return {
   config = function()
     require("hop").setup {
       keys = "etovxqpdygfblzhckisuran",
-      vim.api.nvim_set_keymap("o", "S", ":HopChar1<cr>", { silent = true }),
     }
   end,
 }
