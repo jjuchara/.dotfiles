@@ -1,6 +1,7 @@
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity/code-runner/sniprun" },
   { import = "astrocommunity/colorscheme/catppuccin" },
   { import = "astrocommunity/motion/nvim-surround/" },
+  {import = "astrocommunity/pack/go"},
+  {import = "astrocommunity/pack/typescript"},
 }
