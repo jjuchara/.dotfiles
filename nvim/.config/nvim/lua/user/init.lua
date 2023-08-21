@@ -5,6 +5,7 @@ return {
     underline = true,
     update_in_insert = false,
   },
+
   lsp = {
     -- customize lsp formatting options
     -- enable servers that you already have installed without mason
@@ -12,6 +13,7 @@ return {
       -- "pyright"
     },
   },
+
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
