@@ -24,7 +24,7 @@ return {
       --- NOTE: https://github.com/AstroNvim/astrocommunity/pull/383
       sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
+        { name = "luasnip", priority = 710 },
         { name = "pandoc_references", priority = 725 },
         { name = "latex_symbols", priority = 700 },
         { name = "emoji", priority = 700 },
