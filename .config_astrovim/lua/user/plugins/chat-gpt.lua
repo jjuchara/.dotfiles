@@ -18,16 +18,23 @@ return {
     "NeoAIInjectContextCode",
   },
   keys = {
-    { "<leader>A", desc = "ChatGpt" },
+    { "<leader>A",  desc = "ChatGpt" },
     { "<leader>As", desc = "summarize text" },
     { "<leader>Am", desc = "generate git message" },
-    { "<leader>Ao", "<cmd>NeoAI<CR>", desc = "Toggle normal mode" },
-    { "<leader>Ac", "<cmd>NeoAIContext<CR>", desc = "Toggle context mode" },
+    { "<leader>Ao", "<cmd>NeoAI<CR>",                  desc = "Toggle normal mode" },
+    { "<leader>Ac", "<cmd>NeoAIContext<CR>",           desc = "Toggle context mode" },
     { "<leader>Ai", "<cmd>NeoAIInjectContextCode<CR>", desc = "Direct inject code snippet" },
   },
   config = function()
     require("neoai").setup {
-      -- Options go here
+      -- Options go heremodels = {
+      models = {
+        {
+          name = "openai",
+          model = "GPT-4",
+          params = nil,
+        },
+      },
     }
   end,
 }

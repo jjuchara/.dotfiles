@@ -22,6 +22,8 @@ return {
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayVariableTypeHints = true,
       },
+      validate = false,
+      suggest = false,
     },
   },
 }
