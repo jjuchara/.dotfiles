@@ -29,9 +29,9 @@
 	line-numbers = true
 [merge]
 	conflictstyle = diff3
-	tool = vimdiff
+	tool = opendiff
 [mergetool]
-	path = nvim
+	path = lvim
 [alias]
   co = checkout
   ci = commit
