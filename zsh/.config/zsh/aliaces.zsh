@@ -1,7 +1,7 @@
 #!/bin/sh
 alias g='lazygit'
 alias python="python3"
-alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print2 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/lvim/'
 
 # get fastest mirrors
@@ -88,3 +88,22 @@ case "$(uname -s)" in
         # echo 'Other OS'
         ;;
 esac
+
+#Neovim setings switcher
+alias nviml="NVIM_APPNAME=LazyVim nvim"
+alias nvimc="NVIM_APPNAME=NvimChad nvim"
+# alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+
+function nvims() {
+  items=("default" "LazyVim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
+bindkey -s ^a "nvims\n"

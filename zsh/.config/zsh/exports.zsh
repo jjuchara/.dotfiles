@@ -2,7 +2,7 @@
 # HISTFILE="$XDG_DATA_HOME"/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
-export EDITOR="lvim"
+export EDITOR="nviml"
 export TERMINAL="alacritty"
 export BROWSER="arc "
 export PATH="$HOME/.local/bin":$PATH
@@ -13,6 +13,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 # export GOPATH=$HOME/.local/share/go
 export PATH=$HOME/.fnm:$PATH
 export PATH="$HOME/.local/share/neovim/bin":$PATH
+export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 export XDG_CURRENT_DESKTOP="Wayland"
 export GOROOT=/usr/local/go
 #export PATH="$PATH:./node_modules/.bin"
