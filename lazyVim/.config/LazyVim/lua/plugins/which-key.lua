@@ -5,7 +5,7 @@ return {
     vim.o.timeoutlen = 500
   end,
   opts = {
-    defaults = {
+    spec = {
       ["<leader>n"] = { name = "+Notes" },
       ["<leader>a"] = { name = "+Ai" },
     },
