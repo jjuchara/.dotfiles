@@ -13,9 +13,9 @@ return {
       })
     end,
     keys = {
-      { "<M-4>", "<cmd>Lab code run<cr>", desc = "Run code" },
-      { "<M-5>", "<cmd>Lab code stop<cr>", desc = "Stop code" },
-      { "<m-6>", "<cmd>Lab code panel<cr>", desc = "Code pannel" },
+      { "<F4>", "<cmd>Lab code run<cr>", desc = "Run code" },
+      { "<F5>", "<cmd>Lab code stop<cr>", desc = "Stop code" },
+      { "<F6>", "<cmd>Lab code panel<cr>", desc = "Code pannel" },
     },
   },
 }

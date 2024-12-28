@@ -13,6 +13,7 @@ plug "$HOME/.config/zsh/aliaces.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
 
 # plugins
+plug "wintermi/zsh-brew"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "hlissner/zsh-autopair"
@@ -22,8 +23,8 @@ plug "wintermi/zsh-starship"
 plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "wintermi/zsh-brew"
 plug "zap-zsh/sudo"
+plug "wintermi/zsh-bob"
 
 # keybinds
 bindkey '^ ' autosuggest-accept
@@ -38,7 +39,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 autoload -U add-zsh-hook
 
@@ -57,20 +57,32 @@ load-nvmrc() {
   fi
 
 }
+#NVIM
+function nvims() {
+  items=("default" "LazyVim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
 
-eval "$(fzf --zsh)"
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+# bindkey -s ^a "nvims\n"
+
+#Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
 }
 
-add-zsh-hook chpwd load-nvmrc
-
-load-nvmrc
-
+eval "$(fzf --zsh)"
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
