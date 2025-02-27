@@ -21,12 +21,12 @@ sketchybar --bar height=50 \
   shadow=$SHADOW \
   position=right \
   sticky=on \
-  padding_right=18 \
-  padding_left=18 \
+  padding_right=10 \
+  padding_left=10 \
   corner_radius=9 \
   y_offset=10 \
   margin=10 \
-  blur_radius=20 \
+  blur_radius=10 \
   \
   --default updates=when_shown \
   icon.font="$FONT:Bold:14.0" \

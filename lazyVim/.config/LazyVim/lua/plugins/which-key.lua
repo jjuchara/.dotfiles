@@ -6,8 +6,7 @@ return {
   end,
   opts = {
     spec = {
-      ["<leader>n"] = { name = "+Notes" },
-      ["<leader>a"] = { name = "+Ai" },
+      { "<leader>a", group = "+Ai" },
     },
   },
 }
