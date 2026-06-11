@@ -86,3 +86,10 @@ eval "$(fzf --zsh)"
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 
+export PATH="/Applications/AeroSpace.app/Contents/MacOS:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/jjuchara/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/jjuchara/.opencode/bin:$PATH

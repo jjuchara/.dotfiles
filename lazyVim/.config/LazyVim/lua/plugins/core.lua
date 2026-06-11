@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-nvim",
     },
   },
   {
@@ -67,6 +67,16 @@ return {
     name = "catppuccin",
     opts = {
       transparent_background = true,
+      highlight_overrides = {
+        all = function()
+          return {
+            Normal = { bg = "NONE" },
+            NormalNC = { bg = "NONE" },
+            NormalFloat = { bg = "NONE" },
+            FloatBorder = { bg = "NONE" },
+          }
+        end,
+      },
       integrations = {
         aerial = true,
         alpha = true,

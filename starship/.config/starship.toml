@@ -20,7 +20,7 @@ style = "blue bold"
 home_symbol = " "
 
 [package]
-disabled = true 
+disabled = true
 
 [username]
 style_user = 'yellow bold'
@@ -35,6 +35,5 @@ disabled = true
 disabled = true
 
 [git_branch]
-symbol = 'git'
-format = 'on [$symbol$branch(:$remote_branch)]($style) '
-
+symbol = 'branch'
+format = 'on [$symbol $branch(:$remote_branch)]($style) '

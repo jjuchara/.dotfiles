@@ -45,4 +45,5 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 #Neovim setings switcher
 alias nviml="NVIM_APPNAME=LazyVim nvim"
+alias n="NVIM_APPNAME=LazyVim nvim"
 
