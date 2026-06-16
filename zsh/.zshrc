@@ -11,6 +11,7 @@ HISTFILE=~/.zsh_history
 # source
 plug "$HOME/.config/zsh/aliaces.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
+plug "$HOME/.config/zsh/tasks.zsh"
 
 # plugins
 plug "wintermi/zsh-brew"
@@ -83,10 +84,13 @@ function y() {
 }
 
 eval "$(fzf --zsh)"
+
+# Открыть Obsidian (Home запинен, откроется сам)
+home() {
+  open -a Obsidian
+}
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
-export PATH="/Applications/AeroSpace.app/Contents/MacOS:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/jjuchara/.antigravity/antigravity/bin:$PATH"

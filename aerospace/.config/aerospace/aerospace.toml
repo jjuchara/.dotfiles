@@ -19,7 +19,7 @@ start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = false
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
@@ -157,6 +157,8 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-n = 'focus-monitor --wrap-around next'
 ctrl-alt-shift-n = 'move-node-to-monitor next --focus-follows-window'
+ctrl-alt-g = 'exec-and-forget /bin/bash /Users/jjuchara/.config/aerospace/layout-g.sh'
+ctrl-alt-shift-g = ['join-with left', 'layout v_tiles']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -206,17 +208,14 @@ run = 'move-node-to-workspace M'
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace G'
 
+
 [[on-window-detected]]
-if.app-id = 'com.readdle.SparkDesktop'
+if.app-id = 'com.readdle.SparkDesktop.appstore'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'dev.warp.Warp-Stable'
-run = 'move-node-to-workspace W'
-
-[[on-window-detected]]
 if.app-id = 'com.figma.Desktop'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace F'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
