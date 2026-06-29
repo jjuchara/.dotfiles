@@ -1,0 +1,4 @@
+name = "Config: Actions"
+description = "Open herdr-plus Quick Action configs"
+type = "command"
+command = "\"$HERDR_PLUGIN_CONFIG_DIR/scripts/open-config.sh\" actions"

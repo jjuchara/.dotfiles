@@ -1,0 +1,31 @@
+name = "TFlex Web"
+description = "Проект TFlex web"
+working_dir = "~/projects/topSystems/webClient/"   # ~ and $VARS expand
+
+[[tabs]]
+name = " 📱 Ide"
+command = "n"
+
+[[tabs]]
+name = "🚷 Server"
+
+[[tabs.panes]]
+command = "npm run dev"
+split = "left"
+
+[[tabs]]
+name = "claude"
+command = "claude --dangerously-skip-permissions --chrome"
+
+[[tabs]]
+name = "openCode"
+command = "openCode"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "🌲 yazi"
+command = "yazi"
+

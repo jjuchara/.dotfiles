@@ -1,0 +1,4 @@
+name = "Config: Workspaces"
+description = "Open herdr-plus workspace project configs"
+type = "command"
+command = "\"$HERDR_PLUGIN_CONFIG_DIR/scripts/open-config.sh\" workspace"

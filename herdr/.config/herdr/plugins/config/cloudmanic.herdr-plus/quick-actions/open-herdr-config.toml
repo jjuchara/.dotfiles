@@ -1,0 +1,4 @@
+name = "Config: Herdr"
+description = "Open the main Herdr config"
+type = "command"
+command = "\"$HERDR_PLUGIN_CONFIG_DIR/scripts/open-config.sh\" herdr"

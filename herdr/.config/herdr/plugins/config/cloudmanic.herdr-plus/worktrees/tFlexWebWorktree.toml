@@ -1,0 +1,27 @@
+repo = "webClient"
+
+[[tabs]]
+name = " 📱 Ide"
+
+[[tabs]]
+name = "🚷 Server"
+
+[[tabs.panes]]
+command = "npm run dev"
+split = "left"
+
+[[tabs]]
+name = "claude"
+command = "claude --dangerously-skip-permissions --chrome"
+
+[[tabs]]
+name = "openCode"
+command = "openCode"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "🌲 yazi"
+command = "yazi"

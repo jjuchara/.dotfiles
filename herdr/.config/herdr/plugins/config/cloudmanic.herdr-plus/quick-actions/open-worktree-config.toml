@@ -1,0 +1,4 @@
+name = "Config: Worktrees"
+description = "Open herdr-plus worktree layout configs"
+type = "command"
+command = "\"$HERDR_PLUGIN_CONFIG_DIR/scripts/open-config.sh\" worktree"

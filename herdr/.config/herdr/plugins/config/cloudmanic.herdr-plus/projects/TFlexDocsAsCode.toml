@@ -1,0 +1,16 @@
+name = "TFlex Docs As Code"
+description = "Документация проекта TFlex web"
+working_dir = "~/projects/topSystems/docAsCode/"   # ~ and $VARS expand
+
+[[tabs]]
+name = " 📚 Ide"
+command = "n"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "🌲 yazi"
+command = "yazi"
+
