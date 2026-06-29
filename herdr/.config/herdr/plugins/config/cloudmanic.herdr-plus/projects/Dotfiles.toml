@@ -1,0 +1,8 @@
+name = "Dotfiles"
+description = "Выбор пакета настроек из ~/.dotfiles через fzf"
+group = "Configuration"
+working_dir = "~/.dotfiles"
+
+[[tabs]]
+name = "dotfiles"
+command = "~/.config/herdr/plugins/config/cloudmanic.herdr-plus/scripts/open-dotfiles.sh"
