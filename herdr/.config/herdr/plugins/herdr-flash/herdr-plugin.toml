@@ -1,0 +1,20 @@
+id = "local.herdr-flash"
+name = "Herdr Flash"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Jump to a tab in the current workspace using short letter hints."
+platforms = ["linux", "macos"]
+
+[[actions]]
+id = "open"
+title = "Herdr Flash: jump to tab"
+contexts = ["workspace"]
+command = ["bash", "-c", "workspace_id=${HERDR_WORKSPACE_ID:-$(jq -r '.workspace_id // empty' <<<\"$HERDR_PLUGIN_CONTEXT_JSON\")}; exec \"$HERDR_BIN_PATH\" plugin pane open --plugin \"$HERDR_PLUGIN_ID\" --entrypoint picker --env \"HERDR_FLASH_WORKSPACE_ID=$workspace_id\" --focus"]
+
+[[panes]]
+id = "picker"
+title = "Jump to tab"
+placement = "floating"
+width = 56
+height = 14
+command = ["bash", "-c", "exec bash \"$HERDR_PLUGIN_ROOT/flash.sh\""]

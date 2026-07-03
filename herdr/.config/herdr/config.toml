@@ -84,6 +84,7 @@ resize_mode = "prefix+-"
 # =============== NEW ========================
 new_workspace = "prefix+shift+c"
 new_tab = "prefix+c"
+hint_tabs = "prefix+a"
 
 split_vertical = "prefix+v"
 split_horizontal = "prefix+s"
@@ -163,6 +164,12 @@ type = "plugin_action"
 command = "worktrunk.remove"
 description = "Worktree: remove"
 
+[[keys.command]]
+key = "prefix+f"
+type = "plugin_action"
+command = "local.herdr-flash.open"
+description = "Jump to tab by letter hint"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
@@ -229,7 +236,7 @@ description = "Worktree: remove"
 accent = "cyan"
 
 # Background notification popup delivery
-agent_panel_sort = "spaces"
+agent_panel_sort = "priority"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
