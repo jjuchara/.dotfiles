@@ -51,6 +51,16 @@ return {
       extension = "avif", ---@type string
       process_cmd = "convert - -quality 75 avif:-", ---@type string
 
+      -- Finder and terminal drag-and-drop provide a shell-escaped file path.
+      -- Copy those files into the note's image directory without converting
+      -- their contents to a different format under the original extension.
+      drag_and_drop = {
+        enabled = true,
+        insert_mode = false,
+        copy_images = true,
+        process_cmd = "",
+      },
+
       -- extension = "webp", ---@type string
       -- process_cmd = "convert - -quality 75 webp:-", ---@type string
 
@@ -107,6 +117,18 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("img-clip").setup(opts)
+
+    if vim.fn.has("mac") == 1 then
+      local util = require("img-clip.util")
+      local sanitize_input = util.sanitize_input
+
+      util.sanitize_input = function(input)
+        return sanitize_input(input):gsub("\\(.)", "%1")
+      end
+    end
+  end,
   keys = {
     -- suggested keymap
     { "<leader>v", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },

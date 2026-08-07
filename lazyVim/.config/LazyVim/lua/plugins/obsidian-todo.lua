@@ -1,14 +1,26 @@
 return {
   {
     "jjuchara/obsidian-tasks.nvim",
+    dependencies = { "folke/snacks.nvim" },
     opts = {
       repositories = {
         {
           name = "personal",
           alias = "Personal",
-          vault = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian_jjuchara",
+          vault = "~/Users/jjuchara/Documents/MySecondBrain",
           todo_file = "Tasks/Tasks.md",
           obsidian_name = "obsidian_jjuchara",
+          sources = {
+            {
+              glob = "1. Projects/**/*.md",
+              tags = { "#project" },
+              project_tag = {
+                root = "1. Projects",
+                marker = "#projects",
+                exclude = { "#projects", "#project-support" },
+              },
+            },
+          },
         },
         {
           name = "frontend",

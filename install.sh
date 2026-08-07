@@ -29,6 +29,7 @@ stow ideavim
 stow tmux
 stow zsh
 stow alacritty
+stow karabiner
 stow zshrc
 stow yabai
 

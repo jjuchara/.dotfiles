@@ -1,0 +1,11 @@
+name = "Second Brain"
+description = "Мой каталог Obsidian"
+working_dir = "/Users/jjuchara/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian_jjuchara"
+
+[[tabs]]
+name = " 📚 Ide"
+command = "n"
+
+[[tabs]]
+name = "codex"
+command = "codex"

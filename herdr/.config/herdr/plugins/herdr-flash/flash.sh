@@ -25,6 +25,7 @@ agent_hints=()
 mode="tabs"
 typed=""
 message=""
+focus_error=""
 
 cleanup() {
   printf '\033[?25h'
@@ -99,7 +100,7 @@ done < <(
       select(.agent != null) |
       .workspace_id as $workspace_id |
       ($workspaces.result.workspaces | map(select(.workspace_id == $workspace_id))[0].label // $workspace_id) as $workspace_label |
-      [.terminal_id, .agent, (.agent_status // "unknown"), ($workspace_label + " · " + .tab_id), (.focused // false)] |
+      [.pane_id, .agent, (.agent_status // "unknown"), ($workspace_label + " · " + .tab_id), (.focused // false)] |
       @tsv
     '
 )
@@ -203,19 +204,31 @@ draw() {
   fi
 }
 
+run_focus() {
+  local output
+  focus_error=""
+  if output="$("$HERDR_BIN" "$@" 2>&1)"; then
+    return 0
+  fi
+
+  focus_error="$(printf '%s' "$output" | jq -r '.error.message // empty' 2>/dev/null)"
+  [[ -n "$focus_error" ]] || focus_error="${output:-Focus command failed}"
+  return 1
+}
+
 focus_tab() {
   target_tab_id="$1"
-  "$HERDR_BIN" tab focus "$target_tab_id" >/dev/null 2>&1
+  run_focus tab focus "$target_tab_id"
 }
 
 focus_workspace() {
   target_workspace_id="$1"
-  "$HERDR_BIN" workspace focus "$target_workspace_id" >/dev/null 2>&1
+  run_focus workspace focus "$target_workspace_id"
 }
 
 focus_agent() {
   target_agent="$1"
-  "$HERDR_BIN" agent focus "$target_agent" >/dev/null 2>&1
+  run_focus agent focus "$target_agent"
 }
 
 while true; do
@@ -304,6 +317,6 @@ while true; do
       exit 0
     fi
     typed=""
-    message="Could not focus the selected ${mode%s}"
+    message="${focus_error:-Could not focus the selected ${mode%s}}"
   fi
 done

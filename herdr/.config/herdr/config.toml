@@ -84,8 +84,6 @@ resize_mode = "prefix+-"
 # =============== NEW ========================
 new_workspace = "prefix+shift+c"
 new_tab = "prefix+c"
-hint_tabs = "prefix+a"
-
 split_vertical = "prefix+v"
 split_horizontal = "prefix+s"
 # =============== RENAME =====================
@@ -169,6 +167,18 @@ key = "prefix+f"
 type = "plugin_action"
 command = "local.herdr-flash.open"
 description = "Jump to tab by letter hint"
+
+[[keys.command]]
+key = "prefix+shift+left"
+type = "shell"
+command = "~/.dotfiles/herdr/.config/herdr/scripts/move-tab.sh left"
+description = "Move current tab left"
+
+[[keys.command]]
+key = "prefix+shift+right"
+type = "shell"
+command = "~/.dotfiles/herdr/.config/herdr/scripts/move-tab.sh right"
+description = "Move current tab right"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
@@ -285,7 +295,7 @@ enabled = false
 # allow_nested = false
 # Experimental local Kitty graphics rendering for attached clients.
 # Requires a Kitty graphics-compatible outer terminal.
-# kitty_graphics = false
+kitty_graphics = true
 # Save recent pane screen history across full server restarts.
 pane_history = false
 # While prefix mode is active, temporarily switch the macOS host input

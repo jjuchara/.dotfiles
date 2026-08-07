@@ -1,8 +1,8 @@
 # Herdr Flash
 
-Minimal letter-hint tab picker for a Herdr build with floating plugin panes.
+Minimal letter-hint target picker for Herdr 0.7.4 or newer using native popup panes.
 
-The plugin action opens a 56x14 managed floating pane, loads tabs from the workspace in
+The plugin action opens a 56x14 session-modal popup, loads tabs from the workspace in
 which it was invoked, assigns stable hints using home-row-first letters, and
 focuses the matching tab. Press `Esc` to cancel and `Backspace` to clear a
 partial two-letter hint. Press `Tab` to cycle through tab, workspace, and agent

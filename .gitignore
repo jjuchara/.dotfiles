@@ -1,4 +1,9 @@
 #swap files
 *.swp 
+.DS_Store
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zsh_sessions/
+
+# Clash profiles contain a private subscription URL.
+clash/clash-verge.yaml
+clash/clash-mi.yaml
