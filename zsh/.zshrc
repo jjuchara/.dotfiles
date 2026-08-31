@@ -99,3 +99,11 @@ export PATH="/Users/jjuchara/.antigravity/antigravity/bin:$PATH"
 export PATH=/Users/jjuchara/.opencode/bin:$PATH
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# pnpm
+export PNPM_HOME="/Users/jjuchara/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

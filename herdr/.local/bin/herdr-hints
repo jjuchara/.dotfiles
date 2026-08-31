@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+hints_bin="${HERDR_HINTS_BIN:-$HOME/.local/opt/herdr-custom/bin/herdr}"
+
+if [ ! -x "$hints_bin" ]; then
+  echo "herdr-hints: $hints_bin is not executable; install the custom build first" >&2
+  exit 1
+fi
+
+exec "$hints_bin" "$@"

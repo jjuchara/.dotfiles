@@ -1,0 +1,78 @@
+#!/bin/sh
+
+set -eu
+
+bin_dir="$HOME/.local/bin"
+active_bin="$bin_dir/herdr"
+
+usage() {
+  echo "usage: herdr-switch official|hints|status" >&2
+}
+
+show_status() {
+  if [ -L "$active_bin" ]; then
+    active_target="$(readlink "$active_bin")"
+  elif [ -e "$active_bin" ]; then
+    active_target="custom file"
+  else
+    active_target="PATH fallback"
+  fi
+
+  echo "active: $active_target"
+  "$bin_dir/herdr-official" --version
+  "$bin_dir/herdr-hints" --version
+}
+
+binary_for() {
+  case "$1" in
+    official) echo "/opt/homebrew/bin/herdr" ;;
+    hints) echo "${HERDR_HINTS_BIN:-$HOME/.local/opt/herdr-custom/bin/herdr}" ;;
+  esac
+}
+
+case "${1:-status}" in
+  official|hints)
+    selected="$1"
+    target="herdr-$selected"
+    selected_bin="$(binary_for "$selected")"
+
+    if [ ! -x "$selected_bin" ]; then
+      echo "herdr-switch: $selected_bin is not executable" >&2
+      exit 1
+    fi
+
+    client_status="$("$selected_bin" status client)"
+    selected_version="$(printf '%s\n' "$client_status" | awk '/^version:/ { print $2; exit }')"
+    selected_protocol="$(printf '%s\n' "$client_status" | awk '/^protocol:/ { print $2; exit }')"
+
+    status_bin="$active_bin"
+    if [ ! -x "$status_bin" ]; then
+      status_bin="$selected_bin"
+    fi
+    server_status="$("$status_bin" status server 2>/dev/null || true)"
+    server_version="$(printf '%s\n' "$server_status" | awk '/^version:/ { print $2; exit }')"
+
+    if printf '%s\n' "$server_status" | grep -q '^status: running$' &&
+       [ "$server_version" != "$selected_version" ]; then
+      "$status_bin" server live-handoff \
+        --import-exe "$selected_bin" \
+        --expected-protocol "$selected_protocol" \
+        --expected-version "$selected_version"
+    fi
+
+    staged_link="$bin_dir/.herdr-switch.$$"
+    trap 'rm -f "$staged_link"' EXIT HUP INT TERM
+    ln -s "$target" "$staged_link"
+    mv -f "$staged_link" "$active_bin"
+    trap - EXIT HUP INT TERM
+    echo "herdr -> $target"
+    "$active_bin" --version
+    ;;
+  status)
+    show_status
+    ;;
+  *)
+    usage
+    exit 2
+    ;;
+esac

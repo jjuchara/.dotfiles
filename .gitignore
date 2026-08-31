@@ -7,3 +7,4 @@ zsh/.config/zsh/.zsh_sessions/
 # Clash profiles contain a private subscription URL.
 clash/clash-verge.yaml
 clash/clash-mi.yaml
+clash/clash-mi-ready.yaml

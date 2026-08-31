@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+official_bin="/opt/homebrew/bin/herdr"
+
+if [ ! -x "$official_bin" ]; then
+  echo "herdr-official: $official_bin is not executable; run: brew install herdr" >&2
+  exit 1
+fi
+
+exec "$official_bin" "$@"

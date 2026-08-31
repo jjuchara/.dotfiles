@@ -7,7 +7,7 @@ return {
         {
           name = "personal",
           alias = "Personal",
-          vault = "~/Users/jjuchara/Documents/MySecondBrain",
+          vault = "~/Documents/MySecondBrain",
           todo_file = "Tasks/Tasks.md",
           obsidian_name = "obsidian_jjuchara",
           sources = {
@@ -36,8 +36,8 @@ return {
         status = "active",
       },
       mappings = {
-        open = "<leader>to",
-        create = "<leader>ta",
+        open = "<leader>oo",
+        create = "<leader>oc",
       },
     },
   },
