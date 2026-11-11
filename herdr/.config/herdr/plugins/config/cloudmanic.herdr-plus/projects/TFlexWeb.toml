@@ -1,6 +1,7 @@
 name = "TFlex Web"
 description = "Проект TFlex web"
-working_dir = "~/projects/topSystems/webClient/"   # ~ and $VARS expand
+working_dir = "~/projects/topSystems/webClient/" # ~ and $VARS expand
+repo = "webClient" # Для шаблона worktree, ссылающегося на этот файл
 
 [[tabs]]
 name = " 📱 Ide"
@@ -10,22 +11,16 @@ command = "n"
 name = "🚷 Server"
 
 [[tabs.panes]]
-command = "npm run dev"
 split = "left"
 
 [[tabs]]
-name = "claude"
-command = "claude --dangerously-skip-permissions --chrome"
+name = "💬 Codex"
+command = "codex"
 
 [[tabs]]
-name = "openCode"
-command = "openCode"
-
-[[tabs]]
-name = "lazygit"
+name = "🌐 lazygit"
 command = "lazygit"
 
 [[tabs]]
 name = "🌲 yazi"
 command = "yazi"
-
